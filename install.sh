@@ -1,4 +1,4 @@
-#!bin/sh
+#!/bin/sh
 
 stow bspwm
 stow sxhkd
