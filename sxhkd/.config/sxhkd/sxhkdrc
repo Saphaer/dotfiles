@@ -11,7 +11,9 @@ super + w
 super + shift + s
   maim -s | xclip -selection clipboard -t image/png
 
-
+#walpaper + pywal16
+super + alt + w
+  alacritty --class "floating_picker" -e ~/.local/bin/wal-picker
 
 # -5 percent brightness
 F1
@@ -38,9 +40,6 @@ super + Return
 super + Escape
 	rofi -show drun -dpi 144
 
-# theme switcher
-super + alt + t
-	~/.config/themes/theme_selector.sh
 
 # make sxhkd reload its configuration files:
 alt + Escape

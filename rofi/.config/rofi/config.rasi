@@ -1,0 +1,121 @@
+configuration {
+    modi: ["drun", "window", "run"];
+    icon-theme: "Papirus-Dark";
+    show-icons: true;
+    terminal: "alacritty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    sidebar-mode: false;
+    display-drun: " ";
+    display-run: " ";
+    display-window: " ";
+
+    kb-row-up: "Up,Control+k";
+    kb-row-left: "Left,Control+h";
+    kb-row-right: "Right,Control+l";
+    kb-row-down: "Down,Control+j";
+    kb-accept-entry: "Control+z,Control+y,Return,KP_Enter";
+    kb-remove-to-eol: "";
+    kb-move-char-back: "Control+b";
+    kb-remove-char-back: "BackSpace";
+    kb-move-char-forward: "Control+f";
+    kb-mode-complete: "Control+o";
+}
+
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+* {
+    bg: @background;
+    hv: @selected-normal-background; 
+    primary: @active-background; 
+    ug: @urgent-background;
+    kl: @foreground;
+    black: @background;
+    background-color: @bg;
+    
+    font: "Monospace 11";
+    border: 0px;
+}
+
+window {
+    width: 700px;
+    orientation: horizontal;
+    location: center;
+    anchor: center;
+    transparency: "real";
+    border-color: transparent;    
+    border: 0px;
+    border-radius: 6px;
+    spacing: 0;
+    children: [ mainbox ];
+}
+
+mainbox {
+    spacing: 0;
+    children: [ inputbar, message, listview ];
+    background-color: @bg;
+}
+
+inputbar {
+    text-color: @kl;
+    padding: 11px;
+    border: 3px 3px 2px 3px;
+    border-color: @primary;
+    border-radius: 6px 6px 0px 0px;
+    children: [ prompt, entry ];
+}
+
+message {
+    padding: 5px;
+    border-color: @primary;
+    border: 0px 3px 0px 3px;
+}
+
+entry, prompt, case-indicator {
+    text-font: inherit;
+    text-color: inherit;
+}
+
+prompt {
+    margin: 0px 5px 0px 0px;
+}
+
+listview {
+    layout: vertical;
+    padding: 8px;
+    lines: 7;
+    columns: 2;
+    border: 0px 3px 3px 3px; 
+    border-radius: 0px 0px 6px 6px;
+    border-color: @primary;
+    dynamic: false;
+}
+
+element {
+    padding: 4px;
+    vertical-align: 0.5;
+    text-color: @kl;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
+
+element-icon {
+    background-color: inherit;
+    size: 2.5em;
+    padding: 0px 10px 0px 0px;
+}
+
+element selected.normal {
+    text-color: @black;
+    background-color: @hv;
+}
+
+element normal.active {
+    background-color: @hv;
+    text-color: @black;
+}

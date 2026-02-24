@@ -1,16 +1,16 @@
 #!/bin/bash
 
-BAT=$(ls /sys/class/power_supply | grep BAT | head -n 1)
+BAT_PATH=$(upower -e | grep 'battery' | head -n 1)
 
-if [ -z "$BAT" ]; then
+if [ -z "$BAT_PATH" ]; then
   echo "No Battery"
   exit 0
 fi
 
-PERC=$(cat "/sys/class/power_supply/$BAT/capacity")
-STAT=$(cat "/sys/class/power_supply/$BAT/status")
+PERC=$(upower -i "$BAT_PATH" | grep -E "percentage:" | awk '{print $2}' | tr -d '%' | cut -d'.' -f1)
+STAT=$(upower -i "$BAT_PATH" | grep -E "state:" | awk '{print $2}')
 
-if [ "$STAT" = "Charging" ]; then
+if [ "$STAT" = "charging" ] || [ "$STAT" = "fully-charged" ]; then
   ICON="󱐋"
 elif [ "$PERC" -gt 80 ]; then
   ICON=""

@@ -1,30 +1,8 @@
+general.import = ["~/.cache/wal/colors-alacritty.toml"]
+
 [terminal]
 [terminal.shell]
 program = "/usr/bin/zsh"
-
-[colors.bright]
-black = "#414868"
-blue = "#7aa2f7"
-cyan = "#7dcfff"
-green = "#9ece6a"
-magenta = "#bb9af7"
-red = "#f7768e"
-white = "#c0caf5"
-yellow = "#e0af68"
-
-[colors.normal]
-black = "#32344a"
-blue = "#7aa2f7"
-cyan = "#449dab"
-green = "#9ece6a"
-magenta = "#ad8ee6"
-red = "#f7768e"
-white = "#9699a8"
-yellow = "#e0af68"
-
-[colors.primary]
-background = "#24283b"
-foreground = "#a9b1d6"
 
 [font]
 size = 15.0
