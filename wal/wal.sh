@@ -1,6 +1,8 @@
 #!/bin/bash
 
 WALL_DIR="$HOME/wallpapers"
+OBSIDIAN_PATH="$HOME/obsidian/main/"
+OBSIDIAN_SCRIPT="$HOME/pywal-obsidian.sh"
 
 if [ ! -d "$WALL_DIR" ]; then
   echo "Directory $WALL_DIR does not exist."
@@ -32,3 +34,10 @@ feh --bg-fill "$WALL_DIR/$SELECT"
 
 # Force Alacritty to pick up the new import (fixes the 'no-reload' issue)
 touch ~/.config/alacritty/alacritty.toml
+
+if [ -f "$OBSIDIAN_SCRIPT" ]; then
+  # Use the absolute path to the script
+  bash "$OBSIDIAN_SCRIPT" ""$OBSIDIAN_VAULT""
+else
+  echo "Obsidian script not found at $OBSIDIAN_SCRIPT"
+fi

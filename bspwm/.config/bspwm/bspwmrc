@@ -24,4 +24,6 @@ bspc config gapless_monocle true
 bspc config border_width 4
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a firefox desktop='^2'
+bspc rule -a ayugram desktop='^3'
 bspc rule -a floating_picker state=floating sticky=on center=on rectangle=1000x600+0+0
